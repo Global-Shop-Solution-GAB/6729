@@ -1,0 +1,908 @@
+Program.Sub.ScreenSU.Start
+Gui.F_LastReview..Create
+Gui.F_LastReview..Caption("Last Reviewed Maintenance")
+Gui.F_LastReview..Size(15360,10695)
+Gui.F_LastReview..MinX(0)
+Gui.F_LastReview..MinY(0)
+Gui.F_LastReview..Position(0,0)
+Gui.F_LastReview..BackColor(-2147483633)
+Gui.F_LastReview..MousePointer(0)
+Gui.F_LastReview..Event(UnLoad,F_LastReview_UnLoad)
+Gui.F_LastReview.framePart.Create(Frame)
+Gui.F_LastReview.framePart.Size(11520,1080)
+Gui.F_LastReview.framePart.Position(2940,210)
+Gui.F_LastReview.framePart.Anchor(9)
+Gui.F_LastReview.lblPart.Create(Label,"Part Number",True,1935,255,0,645,315,True,0,"Arial",8,-2147483633,0)
+Gui.F_LastReview.lblPart.Parent("framePart")
+Gui.F_LastReview.lblRev.Create(Label,"Rev",True,750,255,0,3495,315,True,0,"Arial",8,-2147483633,0)
+Gui.F_LastReview.lblRev.Parent("framePart")
+Gui.F_LastReview.lblLoc.Create(Label,"Loc",True,750,255,0,4725,315,True,0,"Arial",8,-2147483633,0)
+Gui.F_LastReview.lblLoc.Parent("framePart")
+Gui.F_LastReview.lblPartDesc.Create(Label,"Part Description",True,1935,255,0,6060,315,True,0,"Arial",8,-2147483633,0)
+Gui.F_LastReview.lblPartDesc.Parent("framePart")
+Gui.F_LastReview.txtPart.Create(TextBox,"",True,2175,300,0,615,600,True,0,"Arial",8,-2147483643,1)
+Gui.F_LastReview.txtPart.Parent("framePart")
+Gui.F_LastReview.txtPart.Locked(True)
+Gui.F_LastReview.txtRev.Create(TextBox,"",True,570,300,0,3480,600,True,0,"Arial",8,-2147483643,1)
+Gui.F_LastReview.txtRev.Parent("framePart")
+Gui.F_LastReview.txtRev.Locked(True)
+Gui.F_LastReview.txtLoc.Create(TextBox,"",True,570,300,0,4725,600,True,0,"Arial",8,-2147483643,1)
+Gui.F_LastReview.txtLoc.Parent("framePart")
+Gui.F_LastReview.txtLoc.Locked(True)
+Gui.F_LastReview.txtPartDesc.Create(TextBox,"",True,4710,300,0,6120,600,True,0,"Arial",8,-2147483643,1)
+Gui.F_LastReview.txtPartDesc.Parent("framePart")
+Gui.F_LastReview.txtPartDesc.Locked(True)
+Gui.F_LastReview.GsGridReview.Create(GsGridControl)
+Gui.F_LastReview.GsGridReview.Size(15015,6630)
+Gui.F_LastReview.GsGridReview.Position(90,3405)
+Gui.F_LastReview.GsGridReview.Anchor(15)
+Gui.F_LastReview.GsGridReview.Event(RowCellClick,GsGridReview_RowCellClick)
+Gui.F_LastReview.frameCust.Create(Frame)
+Gui.F_LastReview.frameCust.Size(12675,1725)
+Gui.F_LastReview.frameCust.Position(2430,1440)
+Gui.F_LastReview.frameCust.Anchor(9)
+Gui.F_LastReview.lblCust.Create(Label,"Customer",True,930,255,0,195,360,True,0,"Arial",8,-2147483633,0)
+Gui.F_LastReview.lblCust.Parent("frameCust")
+Gui.F_LastReview.txtCust.Create(TextBox,"",True,1215,300,0,195,615,True,0,"Arial",8,-2147483643,1)
+Gui.F_LastReview.txtCust.Parent("frameCust")
+Gui.F_LastReview.txtCust.Event(GotFocus,txtCust_GotFocus)
+Gui.F_LastReview.txtCust.Event(LostFocus,txtCust_LostFocus)
+Gui.F_LastReview.cmdCust.Create(Button)
+Gui.F_LastReview.cmdCust.Size(465,375)
+Gui.F_LastReview.cmdCust.Position(1485,570)
+Gui.F_LastReview.cmdCust.Parent("frameCust")
+Gui.F_LastReview.cmdCust.Caption("^")
+Gui.F_LastReview.cmdCust.Event(Click,cmdCust_Click)
+Gui.F_LastReview.lblCustName.Create(Label,"Customer Name",True,2685,255,0,2460,360,True,0,"Arial",8,-2147483633,0)
+Gui.F_LastReview.lblCustName.Parent("frameCust")
+Gui.F_LastReview.txtCustName.Create(TextBox,"",True,3345,300,0,2460,615,True,0,"Arial",8,-2147483643,1)
+Gui.F_LastReview.txtCustName.Parent("frameCust")
+Gui.F_LastReview.txtCustName.Locked(True)
+Gui.F_LastReview.lblPrice.Create(Label,"Price",True,2685,255,0,6420,360,True,0,"Arial",8,-2147483633,0)
+Gui.F_LastReview.lblPrice.Parent("frameCust")
+Gui.F_LastReview.txtPrice.Create(TextBox,"",True,1215,300,0,6420,615,True,0,"Arial",8,-2147483643,1)
+Gui.F_LastReview.txtPrice.Parent("frameCust")
+Gui.F_LastReview.txtPrice.NumericOnly(1)
+Gui.F_LastReview.txtPrice.Event(GotFocus,txtPrice_GotFocus)
+Gui.F_LastReview.txtPrice.Event(LostFocus,txtPrice_LostFocus)
+Gui.F_LastReview.lblComment.Create(Label,"Comment",True,2685,255,0,2460,1065,True,0,"Arial",8,-2147483633,0)
+Gui.F_LastReview.lblComment.Parent("frameCust")
+Gui.F_LastReview.txtComment.Create(TextBox,"",True,3345,300,0,2460,1320,True,0,"Arial",8,-2147483643,1)
+Gui.F_LastReview.txtComment.Parent("frameCust")
+Gui.F_LastReview.txtComment.Event(GotFocus,txtComment_GotFocus)
+Gui.F_LastReview.txtComment.MaxLength(30)
+Gui.F_LastReview.cmdSave.Create(Button)
+Gui.F_LastReview.cmdSave.Size(855,375)
+Gui.F_LastReview.cmdSave.Position(11730,405)
+Gui.F_LastReview.cmdSave.Parent("frameCust")
+Gui.F_LastReview.cmdSave.Caption("Save")
+Gui.F_LastReview.cmdSave.Event(Click,cmdSave_Click)
+Gui.F_LastReview.cmdClear.Create(Button)
+Gui.F_LastReview.cmdClear.Size(855,375)
+Gui.F_LastReview.cmdClear.Position(11730,885)
+Gui.F_LastReview.cmdClear.Parent("frameCust")
+Gui.F_LastReview.cmdClear.Caption("Clear")
+Gui.F_LastReview.cmdClear.Event(Click,cmdClear_Click)
+Gui.F_LastReview.lblDays.Create(Label,"Days till Next Review",False,2685,255,0,6405,1065,True,0,"Arial",8,-2147483633,0)
+Gui.F_LastReview.lblDays.Parent("frameCust")
+Gui.F_LastReview.txtDays.Create(TextBox,"",False,1215,300,0,6450,1320,True,0,"Arial",8,-2147483643,1)
+Gui.F_LastReview.txtDays.Parent("frameCust")
+Gui.F_LastReview.txtDays.NumericOnly(2)
+Gui.F_LastReview.txtDays.Event(GotFocus,txtDays_GotFocus)
+Gui.F_LastReview.txtDays.Event(LostFocus,txtDays_LostFocus)
+Gui.F_LastReview.cmdUpdate.Create(Button)
+Gui.F_LastReview.cmdUpdate.Size(2385,375)
+Gui.F_LastReview.cmdUpdate.Position(7725,1275)
+Gui.F_LastReview.cmdUpdate.Parent("frameCust")
+Gui.F_LastReview.cmdUpdate.Caption("Update Days for All Parts")
+Gui.F_LastReview.cmdUpdate.Event(Click,cmdUpdate_Click)
+Gui.F_LastReview.cmdUpdate.Visible(False)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+V.Global.bOpen.Declare(Boolean,False)
+V.Global.sPart.Declare(String)
+v.Global.bUseRevision.Declare(Boolean,False)
+V.Global.sLoc.Declare(String)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String,"")
+V.Local.sRowContent.Declare(String,"")
+V.Local.iRowCount.Declare(Long,0)
+V.Local.i.Declare(Long,0)
+
+F.Intrinsic.Control.SelectCase(V.Caller.Hook)
+	F.Intrinsic.Control.Case("52000")
+		V.Passed.Script2NewName.Set("Last Review")
+		Function.Intrinsic.Debug.InvokeDebugger
+		Function.Intrinsic.Debug.Stop
+		
+'		F.Intrinsic.BDF.Load("ScriptCaps", "SupplyAndDemand-AccordionControlNavigation-bdf")
+'		F.Intrinsic.BDF.Clone("ScriptCaps", "CaptionsCopy")
+'		'Replace row index 24 caption value (column index 1)
+'		F.Intrinsic.BDF.ReadRowCount("ScriptCaps", V.Local.iRowCount)
+'		V.Local.iRowCount.Set(V.Local.iRowCount.--)
+'		
+'		F.Intrinsic.Control.For(V.Local.i, 0, V.Local.iRowCount, 1)
+'			F.Intrinsic.BDF.ReadRow("ScriptCaps", V.Local.i, V.Local.sRowContent)
+'			F.Intrinsic.Control.If(V.Local.i, <>, 25)
+'				F.Intrinsic.BDF.WriteRow("CaptionsCopy", V.Local.sRowContent)
+'			F.Intrinsic.Control.Else
+'				F.Intrinsic.String.Split(V.Local.sRowContent, "|~|", V.Local.sRowContent)
+'				V.Local.sRowContent(1).Set("Last Review")
+'				F.Intrinsic.String.Join(V.Local.sRowContent, "|~|", V.Local.sRowContent)
+'				F.Intrinsic.BDF.WriteRow("CaptionsCopy", V.Local.sRowContent)
+'			F.Intrinsic.Control.EndIf
+'		F.Intrinsic.Control.Next(V.Local.i)
+'	
+'		F.Intrinsic.BDF.Save("CaptionsCopy", "SupplyAndDemand-AccordionControlNavigation-bdf")
+		
+	F.Intrinsic.Control.Case("52051")
+		'Get whether using Revision Level
+		F.Global.General.ReadOption(70008,0,False,0,v.Global.bUseRevision)
+		
+		V.Global.sLoc.Set(V.Passed.LocationCode.Trim)
+
+		Gui.F_LastReview.txtPartDesc.Text(V.Passed.SupplyAndDemand-TextEditDescription)
+		
+		F.Intrinsic.Control.If(V.Global.bUseRevision)
+			F.Intrinsic.String.RPad(V.Passed.PartNumber," ",17,V.Global.sPart)
+			F.Intrinsic.String.Build("{0}{1}",V.Global.sPart,V.Passed.PartNumberRevision,V.Global.sPart)
+			V.Global.sPart.Set(V.Global.sPart.Trim)
+			Gui.F_LastReview.txtPart.Text(V.Passed.PartNumber.Trim)
+			Gui.F_LastReview.txtRev.Text(V.Passed.PartNumberRevision)
+		F.Intrinsic.Control.Else
+			V.Global.sPart.Set(V.Passed.PartNumber)
+			V.Global.sPart.Set(V.Global.sPart.Trim)
+			Gui.F_LastReview.txtPart.Text(V.Passed.PartNumber.Trim)
+			Gui.F_LastReview.txtRev.Text("")
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.If(V.Global.sPart.Trim,<>,"")
+			F.Intrinsic.Control.CallSub(Get_Data)
+			F.Intrinsic.Control.CallSub(Set_Prop)
+		
+			Gui.F_LastReview..Show
+			Gui.F_LastReview..AlwaysOnTop(True)
+			Gui.F_LastReview..AlwaysOnTop(False)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.CallSub(F_LastReview_UnLoad)
+		F.Intrinsic.Control.EndIf
+		
+F.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: GCG_6729_SD_Last_Review.g2u {0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CallSub(F_LastReview_UnLoad)
+Function.Intrinsic.Control.EndIf
+Program.Sub.Main.End
+
+Program.Sub.F_LastReview_UnLoad.Start
+F.Intrinsic.Control.SetErrorHandler("F_LastReview_UnLoad_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String,"")
+
+F.Intrinsic.Control.If(V.Global.bOpen)
+	F.ODBC.Connection!Con.Close
+	V.Global.bOpen.Set(False)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.DataTable.LastReview.Exists)
+	F.Data.DataTable.Close("LastReview")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("F_LastReview_UnLoad_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+Program.Sub.F_LastReview_UnLoad.End
+
+Program.Sub.Get_Data.Start
+F.Intrinsic.Control.SetErrorHandler("Get_Data_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String,"")
+V.Local.sSql.Declare(String,"")
+V.Local.sUser.Declare(String,"")
+V.Local.bAdminMode.Declare(Boolean,False)
+V.Local.sDays.Declare(String,"")
+
+F.Global.Registry.ReadValue("6729",V.Caller.CompanyCode,"GCG_6729_SD_LAST_REVIEW.G2U",6729,1,6,"",V.Local.sDays)
+
+F.Intrinsic.Control.If(V.Local.sDays.Trim,<>,"")
+	Gui.F_LastReview.txtDays.Text(v.Local.sDays.Long)
+F.Intrinsic.Control.Else
+	Gui.F_LastReview.txtDays.Text("0")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Build("Select a.String_Date, a.Part, a.Location, a.Description, a.Customer, b.Name_Customer, a.Review_Date, a.Next_Review_Date, a.Price, a.Comment From GCG_6729_Last_Review a Left Join V_Customer_Master b on a.Customer = b.Customer Where a.Part = '{0}' and a.Location = '{1}'",V.Global.sPart,V.Global.sLoc,V.Local.sSql)
+
+v.Local.sUser.Set(v.Caller.User)
+F.Intrinsic.String.Format(V.Local.sUser,">",V.Local.sUser)
+
+F.Global.Security.IsInGroup(V.Local.sUser,"PRICEADM",V.Caller.CompanyCode,V.Local.bAdminMode)
+
+F.Intrinsic.Control.If(V.Local.bAdminMode)
+	Gui.F_LastReview.lblDays.Visible(True)
+	Gui.F_LastReview.txtDays.Visible(True)
+	Gui.F_LastReview.cmdUpdate.Visible(True)
+f.Intrinsic.Control.Else
+	Gui.F_LastReview.lblDays.Visible(False)
+	Gui.F_LastReview.txtDays.Visible(False)
+	Gui.F_LastReview.cmdUpdate.Visible(False)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Global.bOpen,=,False)
+	F.ODBC.Connection!Con.OpenCompanyConnection
+	V.Global.bOpen.Set(True)
+F.Intrinsic.Control.EndIf
+
+F.Data.DataTable.CreateFromSQL("LastReview","con",V.Local.sSql,True)
+
+F.Intrinsic.Control.If(V.Global.bOpen)
+	F.ODBC.Connection!Con.Close
+	V.Global.bOpen.Set(False)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Get_Data_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: GCG_6729_SD_Last_Review.g2u {0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CallSub(F_LastReview_UnLoad)
+Function.Intrinsic.Control.EndIf
+Program.Sub.Get_Data.End
+
+Program.Sub.cmdSave_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdSave_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String,"")
+V.Local.sFilter.Declare(String,"")
+V.Local.dDate.Declare(Date,"")
+V.Local.dNext.Declare(Date,"")
+V.Local.sStringDate.Declare(String,"")
+V.Local.sCust.Declare(String,"")
+
+V.Local.sCust.Set(V.Screen.F_LastReview!txtCust.Text)
+
+F.Intrinsic.Control.If(V.Local.sCust.Trim,<>,"")
+	F.Intrinsic.String.Format(V.Ambient.Date,"MM/DD/YYYY",V.Local.dDate)
+	F.Intrinsic.String.Format(V.Ambient.Date,"MMDDYYYY",V.Local.sStringDate)
+	F.Intrinsic.Date.DateAdd("d",V.Screen.F_LastReview!txtDays.Text,V.Local.dDate,V.Local.dNext)
+	
+	F.Intrinsic.String.Build("Part = '{0}' and Location = '{1}' and Customer = '{2}' and String_Date = '{3}'",V.Global.sPart,V.Global.sLoc,V.Screen.F_LastReview!txtCust.Text,V.Local.sStringDate,V.Local.sFilter)
+	
+	F.Data.DataView.Create("LastReview","VLastReview",22,V.Local.sFilter,"")
+	
+	F.Intrinsic.Control.If(V.DataView.LastReview!VLastReview.RowCount--,<>,-1)
+		F.Data.DataView.SetValue("LastReview","VLastReview",-1,"Price",V.Screen.F_LastReview!txtPrice.Text,"Next_Review_Date",V.Local.dNext,"Comment",V.Screen.F_LastReview!txtComment.Text)
+	F.Intrinsic.Control.Else
+		F.Data.DataTable.AddRow("LastReview","String_Date",V.Local.sStringDate,"Part",V.Global.sPart,"Location",V.Global.sLoc,"Description",V.Screen.F_LastReview!txtPartDesc.Text,"Customer",V.Screen.F_LastReview!txtCust.Text,"Name_Customer",V.Screen.F_LastReview!txtCustName.Text,"Price",V.Screen.F_LastReview!txtPrice.Text,"Review_Date",V.Local.dDate,"Next_Review_Date",V.Local.dNext,"Comment",V.Screen.F_LastReview!txtComment.Text)
+	F.Intrinsic.Control.EndIf
+	
+	F.Data.DataView.Close("LastReview","VLastReview")
+	
+	F.Intrinsic.Control.If(V.Global.bOpen,=,False)
+		F.ODBC.Connection!Con.OpenCompanyConnection
+		V.Global.bOpen.Set(True)
+	F.Intrinsic.Control.EndIf
+	
+	F.Data.DataTable.SaveToDB("LastReview","con","GCG_6729_Last_Review","Part*!*Customer*!*Location*!*String_Date",7,"Part@!@Part*!*Location@!@Location*!*Description@!@Description*!*Customer@!@Customer*!*Comment@!@Comment*!*Price@!@Price*!*Review_Date@!@Review_Date*!*Next_Review_Date@!@Next_Review_Date*!*String_Date@!@String_Date")
+	
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	
+	F.Data.DataTable.AcceptChanges("LastReview")
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Select Customer before Saving","Attention")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdSave_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: GCG_6729_SD_Last_Review.g2u {0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CallSub(F_LastReview_UnLoad)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdSave_Click.End
+
+Program.Sub.cmdClear_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdClear_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String,"")
+
+F.Intrinsic.Control.BlockEvents
+
+Gui.F_LastReview.txtCust.Text("")
+Gui.F_LastReview.txtCustName.Text("")
+Gui.F_LastReview.txtPrice.Text("0.0000")
+Gui.F_LastReview.txtComment.Text("")
+
+F.Intrinsic.Control.UnBlockEvents
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdClear_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: GCG_6729_SD_Last_Review.g2u {0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CallSub(F_LastReview_UnLoad)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdClear_Click.End
+
+Program.Sub.txtPrice_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txtPrice_LostFocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String,"")
+V.Local.sPrice.Declare(String,"")
+
+F.Intrinsic.Control.If(V.Screen.F_LastReview!txtPrice.Text,<>,"")
+	F.Intrinsic.String.Format(V.Screen.F_LastReview!txtPrice.Text,"0.0000",V.Local.sPrice)
+	
+	F.Intrinsic.Control.If(V.Local.fPrice,>,"99999999")
+		F.Intrinsic.UI.Msgbox("Price Needs to be below 99999999","Attention")
+		Gui.F_LastReview.txtPrice.Text("0.0000")
+	F.Intrinsic.Control.Else
+		Gui.F_LastReview.txtPrice.Text(V.Local.sPrice)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	Gui.F_LastReview.txtPrice.Text("0.0000")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtPrice_LostFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: GCG_6729_SD_Last_Review.g2u {0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CallSub(F_LastReview_UnLoad)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtPrice_LostFocus.End
+
+Program.Sub.txtPrice_GotFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txtPrice_GotFocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String,"")
+
+Gui.F_LastReview.txtPrice.SelectAll
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtPrice_GotFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: GCG_6729_SD_Last_Review.g2u {0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CallSub(F_LastReview_UnLoad)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtPrice_GotFocus.End
+
+Program.Sub.txtComment_GotFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txtComment_GotFocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String,"")
+
+Gui.F_LastReview.txtComment.SelectAll
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtComment_GotFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: GCG_6729_SD_Last_Review.g2u {0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CallSub(F_LastReview_UnLoad)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtComment_GotFocus.End
+
+Program.Sub.cmdCust_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdCust_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String,"")
+V.Local.sFilter.Declare(String,"")
+V.Local.sStringDate.Declare(String,"")
+V.Local.sRet.Declare(String,"")
+V.Local.sSql.Declare(String,"")
+V.Local.dDate.Declare(Date)
+
+F.Intrinsic.Control.BlockEvents
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+
+F.Intrinsic.UI.Browser(205,"",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	
+	Gui.F_LastReview.txtCust.Text(V.Local.sRet(0).Trim)
+	Gui.F_LastReview.txtCustName.Text(V.Local.sRet(1).Trim)
+	
+	F.Intrinsic.Control.If(V.Global.bOpen,=,False)
+		F.ODBC.Connection!Con.OpenCompanyConnection
+		V.Global.bOpen.Set(True)
+	F.Intrinsic.Control.EndIf
+	
+'	F.Intrinsic.String.Build("Select Days From GCG_6729_Days Where Customer = '{0}' and Part = '{1}' and Location = '{2}'",V.Screen.F_LastReview!txtCust.Text,V.Global.sPart,V.Global.sLoc,V.Local.sSql)
+'	
+'	F.ODBC.Connection!Con.ExecuteAndReturn(V.Local.sSql,V.Local.sRet)
+	
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	
+'	F.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"")
+'		Gui.F_LastReview.txtDays.Text(V.Local.sRet.Long)
+'	F.Intrinsic.Control.Else
+'		Gui.F_LastReview.txtDays.Text("30")
+'	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.String.Format(V.Ambient.Date,"MMDDYYYY",V.Local.sStringDate)
+	
+	F.Intrinsic.String.Build("Part = '{0}' and Location = '{1}' and Customer = '{2}' and String_Date = '{3}'",V.Global.sPart,V.Global.sLoc,V.Screen.F_LastReview!txtCust.Text,V.Local.sStringDate,V.Local.sFilter)
+	
+	F.Data.DataView.Create("LastReview","VLastReview",22,V.Local.sFilter,"")
+	
+	F.Intrinsic.Control.If(V.DataView.LastReview!VLastReview.RowCount--,<>,-1)
+		Gui.F_LastReview.txtComment.Text(V.DataView.LastReview!VLastReview(V.DataView.LastReview!VLastReview.RowCount--).Comment!FieldValTrim)
+		Gui.F_LastReview.txtPrice.Text(V.DataView.LastReview!VLastReview(V.DataView.LastReview!VLastReview.RowCount--).Price!FieldVal)
+	F.Intrinsic.Control.Else
+		F.Data.DataView.Close("LastReview","VLastReview")
+		F.Intrinsic.String.Build("Part = '{0}' and Location = '{1}' and Customer = '{2}'",V.Global.sPart,V.Global.sLoc,V.Screen.F_LastReview!txtCust.Text,V.Local.sFilter)
+	
+		F.Data.DataView.Create("LastReview","VLastReview",22,V.Local.sFilter,"Review_Date")
+		F.Intrinsic.Control.If(V.DataView.LastReview!VLastReview.RowCount--,<>,-1)
+			Gui.F_LastReview.txtComment.Text("")
+			Gui.F_LastReview.txtPrice.Text(V.DataView.LastReview!VLastReview(V.DataView.LastReview!VLastReview.RowCount--).Price!FieldVal)
+		F.Intrinsic.Control.Else
+			Gui.F_LastReview.txtComment.Text("")
+			Gui.F_LastReview.txtPrice.Text("0.0000")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	
+	F.Data.DataView.Close("LastReview","VLastReview")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.UnBlockEvents
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdCust_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: GCG_6729_SD_Last_Review.g2u {0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CallSub(F_LastReview_UnLoad)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdCust_Click.End
+
+Program.Sub.txtCust_GotFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txtCust_GotFocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String,"")
+
+Gui.F_LastReview.txtCust.SelectAll
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtCust_GotFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: GCG_6729_SD_Last_Review.g2u {0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CallSub(F_LastReview_UnLoad)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtCust_GotFocus.End
+
+Program.Sub.txtCust_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txtCust_LostFocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String,"")
+V.Local.sFilter.Declare(String,"")
+V.Local.sRet.Declare(String,"")
+V.Local.sSql.Declare(String,"")
+V.Local.sStringDate.Declare(String,"")
+V.Local.dDate.Declare(Date)
+
+F.Intrinsic.Control.BlockEvents
+
+F.Intrinsic.Control.If(V.Screen.F_LastReview!txtCust.Text,<>,"")
+	F.Intrinsic.Control.If(V.Global.bOpen,=,False)
+		F.ODBC.Connection!Con.OpenCompanyConnection
+		V.Global.bOpen.Set(True)
+	F.Intrinsic.Control.EndIf
+	
+'	F.Intrinsic.String.Build("Select Days From GCG_6729_Days Where Customer = '{0}' and Part = '{1}' and Location = '{2}'",V.Screen.F_LastReview!txtCust.Text,V.Global.sPart,V.Global.sLoc,V.Local.sSql)
+'	
+'	F.ODBC.Connection!Con.ExecuteAndReturn(V.Local.sSql,V.Local.sRet)
+
+'	F.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"")
+'		Gui.F_LastReview.txtDays.Text(V.Local.sRet.Long)
+'	F.Intrinsic.Control.Else
+'		Gui.F_LastReview.txtDays.Text("30")
+'	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.String.Build("Select Customer, Name_Customer From V_Customer_Master Where Customer = '{0}'",V.Screen.F_LastReview!txtCust.Text,V.Local.sSql)
+	
+	F.ODBC.Connection!Con.ExecuteAndReturn(V.Local.sSql,V.Local.sRet)
+	
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		
+		Gui.F_LastReview.txtCust.Text(V.Local.sRet(0).Trim)
+		Gui.F_LastReview.txtCustName.Text(V.Local.sRet(1).Trim)
+		
+		F.Intrinsic.String.Format(V.Ambient.Date,"MMDDYYYY",V.Local.sStringDate)
+		
+		F.Intrinsic.String.Build("Part = '{0}' and Location = '{1}' and Customer = '{2}' and String_Date = '{3}'",V.Global.sPart,V.Global.sLoc,V.Screen.F_LastReview!txtCust.Text,V.Local.sStringDate,V.Local.sFilter)
+		
+		F.Data.DataView.Create("LastReview","VLastReview",22,V.Local.sFilter,"")
+		
+		F.Intrinsic.Control.If(V.DataView.LastReview!VLastReview.RowCount--,<>,-1)
+			Gui.F_LastReview.txtComment.Text(V.DataView.LastReview!VLastReview(V.DataView.LastReview!VLastReview.RowCount--).Comment!FieldValTrim)
+			Gui.F_LastReview.txtPrice.Text(V.DataView.LastReview!VLastReview(V.DataView.LastReview!VLastReview.RowCount--).Price!FieldVal)
+		F.Intrinsic.Control.Else
+			F.Data.DataView.Close("LastReview","VLastReview")
+			F.Intrinsic.String.Build("Part = '{0}' and Location = '{1}' and Customer = '{2}'",V.Global.sPart,V.Global.sLoc,V.Screen.F_LastReview!txtCust.Text,V.Local.sFilter)
+		
+			F.Data.DataView.Create("LastReview","VLastReview",22,V.Local.sFilter,"Review_Date")
+			F.Intrinsic.Control.If(V.DataView.LastReview!VLastReview.RowCount--,<>,-1)
+				Gui.F_LastReview.txtComment.Text("")
+				Gui.F_LastReview.txtPrice.Text(V.DataView.LastReview!VLastReview(V.DataView.LastReview!VLastReview.RowCount--).Price!FieldVal)
+			F.Intrinsic.Control.Else
+				Gui.F_LastReview.txtComment.Text("")
+				Gui.F_LastReview.txtPrice.Text("0.0000")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+		
+		F.Data.DataView.Close("LastReview","VLastReview")
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Invalid Cusotmer Number","Attention")
+		Gui.F_LastReview.txtCust.Text("")
+		Gui.F_LastReview.txtCustName.Text("")
+		Gui.F_LastReview.txtPrice.Text("0.0000")
+		Gui.F_LastReview.txtComment.Text("")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Invalid Cusotmer Number","Attention")
+	Gui.F_LastReview.txtCust.Text("")
+	Gui.F_LastReview.txtCustName.Text("")
+	Gui.F_LastReview.txtPrice.Text("0.0000")
+	Gui.F_LastReview.txtComment.Text("")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.UnBlockEvents
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtCust_LostFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: GCG_6729_SD_Last_Review.g2u {0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CallSub(F_LastReview_UnLoad)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtCust_LostFocus.End
+
+Program.Sub.Set_Prop.Start
+F.Intrinsic.Control.SetErrorHandler("Set_Prop_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String,"")
+
+F.Data.DataView.Create("LastReview","GReview",22,"","Name_Customer,Review_Date Desc")
+
+F.Data.DataTable.AddColumn("LastReview","Delete_Row",String)
+
+Gui.F_LastReview.GsGridReview.AddGridviewFromDataview("GReview","LastReview","GReview")
+
+Gui.F_LastReview.GsGridReview.SetGridviewProperty("GReview","Editable",False)
+Gui.F_LastReview.GsGridReview.SetGridviewProperty("GReview","ReadOnly",True)
+Gui.F_LastReview.GsGridReview.SetGridviewProperty("GReview","OptionsViewColumnAutoWidth", True)
+Gui.F_LastReview.GsGridReview.SetGridviewProperty("GReview","AllowColumnMoving", False)
+Gui.F_LastReview.GsGridReview.SetGridviewProperty("GReview","OptionsFindAlwaysVisible", True)
+Gui.F_LastReview.GsGridReview.SetGridviewProperty("GReview","OptionsViewShowAutoFilterRow", True)
+
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Part","Visible",False)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Part","Caption","Part")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Part","HeaderForeColor",v.Color.PRI-GSS-00)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Part","HeaderFontBold",True)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Part","HeaderHAlignment","Near")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Part","CellHAlignment","Near")
+
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Location","Visible",False)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Location","Caption","Loc")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Location","HeaderForeColor",v.Color.PRI-GSS-00)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Location","HeaderFontBold",True)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Location","HeaderHAlignment","Near")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Location","CellHAlignment","Near")
+
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Description","Visible",False)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Description","Caption","Description")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Description","HeaderForeColor",v.Color.PRI-GSS-00)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Description","HeaderFontBold",True)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Description","HeaderHAlignment","Near")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Description","CellHAlignment","Near")
+
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Customer","Visible",True)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Customer","Caption","Customer")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Customer","HeaderForeColor",v.Color.PRI-GSS-00)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Customer","HeaderFontBold",True)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Customer","HeaderHAlignment","Near")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Customer","CellHAlignment","Near")
+
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Name_Customer","Visible",True)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Name_Customer","Caption","Customer Name")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Name_Customer","HeaderForeColor",v.Color.PRI-GSS-00)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Name_Customer","HeaderFontBold",True)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Name_Customer","HeaderHAlignment","Near")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Name_Customer","CellHAlignment","Near")
+
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Review_Date","Visible",True)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Review_Date","Caption","Last Review Date")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Review_Date","HeaderForeColor",v.Color.PRI-GSS-00)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Review_Date","HeaderFontBold",True)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Review_Date","DisplayCustomDatetime","d")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Review_Date","HeaderHAlignment","Center")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Review_Date","CellHAlignment","Center")
+
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Next_Review_Date","Visible",True)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Next_Review_Date","Caption","Next Review Date")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Next_Review_Date","HeaderForeColor",v.Color.PRI-GSS-00)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Next_Review_Date","HeaderFontBold",True)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Next_Review_Date","DisplayCustomDatetime","d")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Next_Review_Date","HeaderHAlignment","Center")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Next_Review_Date","CellHAlignment","Center")
+
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Price","Visible",True)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Price","Caption","Price")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Price","HeaderForeColor",v.Color.PRI-GSS-00)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Price","HeaderFontBold",True)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Price","DisplayCustomNumeric","#0.0000")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Price","HeaderHAlignment","Center")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Price","CellHAlignment","Center")
+
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Comment","Visible",True)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Comment","Caption","Comment")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Comment","HeaderForeColor",v.Color.PRI-GSS-00)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Comment","HeaderFontBold",True)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Comment","HeaderHAlignment","Near")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Comment","CellHAlignment","Near")
+
+Gui.F_LastReview.GsGridReview.ColumnEdit("GReview","Delete_Row","EditorButton","Delete")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Delete_Row","Fixed","Right")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Delete_Row","Visible",True)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Delete_Row","Caption"," ")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Delete_Row","HeaderForeColor",v.Color.PRI-GSS-00)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Delete_Row","HeaderFontBold",True)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Delete_Row","HeaderHAlignment","Near")
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","Delete_Row","CellHAlignment","Near")
+
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","String_Date","Visible",False)
+Gui.F_LastReview.GsGridReview.SetColumnProperty("GReview","String_Date","AllowShowHide",False)
+
+Gui.F_LastReview.GsGridReview.MainView("GReview")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Set_Prop_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: GCG_6729_SD_Last_Review.g2u {0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CallSub(F_LastReview_UnLoad)
+Function.Intrinsic.Control.EndIf
+Program.Sub.Set_Prop.End
+
+Program.Sub.cmdUpdate_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdUpdate_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String,"")
+'V.Local.sSql.Declare(String,"")
+'V.Local.sCust.Declare(String,"")
+
+'V.Local.sCust.Set(V.Screen.F_LastReview!txtCust.Text)
+
+'F.Intrinsic.Control.If(V.Local.sCust.Trim,<>,"")
+'	F.Intrinsic.String.Build("Select * From GCG_6729_Days Where Part = '{0}' and Location = '{1}' and Customer = '{2}'",V.Global.sPart,V.Global.sLoc,V.Local.sCust,V.Local.sSql)
+'	F.Intrinsic.Control.If(V.Global.bOpen,=,False)
+'		F.ODBC.Connection!Con.OpenCompanyConnection
+'		V.Global.bOpen.Set(True)
+'	F.Intrinsic.Control.EndIf
+'	
+'	F.Data.DataTable.CreateFromSQL("Days","con",V.Local.sSql,True)
+'	F.Intrinsic.Control.If(V.DataTable.Days.RowCount--,<>,-1)
+'		F.Data.DataTable.SetValue("Days",-1,"Days",V.Screen.F_LastReview!txtDays.Text)
+'	F.Intrinsic.Control.Else
+'		F.Data.DataTable.AddRow("Days","Part",V.Global.sPart,"Location",V.Global.sLoc,"Customer",V.Local.sCust,"Days",V.Screen.F_LastReview!txtDays.Text)
+'	F.Intrinsic.Control.EndIf
+'	
+'	F.Data.DataTable.SaveToDB("Days","con","GCG_6729_Days","Part*!*Customer*!*Location",3)
+'	
+'	F.Data.DataTable.Close("Days")
+'	
+'	F.Intrinsic.Control.If(V.Global.bOpen)
+'		F.ODBC.Connection!Con.Close
+'		V.Global.bOpen.Set(False)
+'	F.Intrinsic.Control.EndIf
+'	
+'	F.Intrinsic.UI.Msgbox("Days updated for Select Part, Loc, Customer","Attention")
+'F.Intrinsic.Control.Else
+'	F.Intrinsic.UI.Msgbox("Select Customer before updating Days","Attention")
+'F.Intrinsic.Control.EndIf
+
+F.Global.Registry.AddValue("6729",V.Caller.CompanyCode,"GCG_6729_SD_Last_Review.g2u",6729,1,False,"Last Review Days",False,0,-999.0,1/1/1980,12:00:00 AM,V.Screen.F_LastReview!txtDays.Text)
+
+F.Intrinsic.UI.Msgbox("# of Days Updated.......")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdUpdate_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: GCG_6729_SD_Last_Review.g2u {0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CallSub(F_LastReview_UnLoad)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdUpdate_Click.End
+
+Program.Sub.txtDays_GotFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txtDays_GotFocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String,"")
+
+Gui.F_LastReview.txtDays.SelectAll
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtDays_GotFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: GCG_6729_SD_Last_Review.g2u {0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CallSub(F_LastReview_UnLoad)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtDays_GotFocus.End
+
+Program.Sub.txtDays_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txtDays_LostFocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String,"")
+V.Local.sRet.Declare(String,"")
+
+V.Local.sRet.Set(V.Screen.F_LastReview!txtDays.Text)
+
+Gui.F_LastReview.txtDays.Text(V.Local.sRet.Long)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtDays_LostFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: GCG_6729_SD_Last_Review.g2u {0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CallSub(F_LastReview_UnLoad)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtDays_LostFocus.End
+
+Program.Sub.GsGridReview_RowCellClick.Start
+F.Intrinsic.Control.SetErrorHandler("GsGridReview_RowCellClick_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String,"")
+
+F.Intrinsic.Control.If(V.Args.Column.UCase,=,"DELETE_ROW")
+	F.Data.DataTable.DeleteRow("LastReview",v.Args.RowIndex)
+	F.Intrinsic.Control.If(V.Global.bOpen,=,False)
+		F.ODBC.Connection!Con.OpenCompanyConnection
+		V.Global.bOpen.Set(True)
+	F.Intrinsic.Control.EndIf
+	
+	F.Data.DataTable.SaveToDB("LastReview","con","GCG_6729_Last_Review","Part*!*Customer*!*Location*!*String_Date",7,"Part@!@Part*!*Location@!@Location*!*Description@!@Description*!*Customer@!@Customer*!*Comment@!@Comment*!*Price@!@Price*!*Review_Date@!@Review_Date*!*Next_Review_Date@!@Next_Review_Date*!*String_Date@!@String_Date")
+	
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	
+	F.Data.DataTable.AcceptChanges("LastReview")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("GsGridReview_RowCellClick_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: GCG_6729_SD_Last_Review.g2u {0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.If(V.Global.bOpen)
+		F.ODBC.Connection!Con.Close
+		V.Global.bOpen.Set(False)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CallSub(F_LastReview_UnLoad)
+Function.Intrinsic.Control.EndIf
+Program.Sub.GsGridReview_RowCellClick.End
+
+Program.Sub.Comments.Start
+${$5$}$2.0.0.0$}$2
+${$6$}$dduncan$}$20220711143741036$}$r0o+00bj735YsiGsQ60YIo/Zb+26OZQGWuOb9mBppQ9RNb5fAlBPmeyJZHf+ObP9+POg8nLKPnQ=
+Program.Sub.Comments.End
